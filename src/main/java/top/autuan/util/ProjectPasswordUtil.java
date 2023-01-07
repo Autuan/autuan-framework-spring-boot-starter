@@ -10,7 +10,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
  */
 public class ProjectPasswordUtil {
     /**
-     * 生成BCryptPasswordEncoder密码
+     * 生成 BCryptPasswordEncoder密码
      *
      * @param password 密码
      * @return 加密字符串

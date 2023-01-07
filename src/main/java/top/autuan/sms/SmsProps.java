@@ -19,7 +19,7 @@ public class SmsProps {
     private String prefix;
 
     private String repeat = "您已获取过验证码,验证码4小时内有效";
-    private String template = "您的验证码是{}。如非本人操作，请忽略本短信,4小时内有效。【权益转让中心】";
+    private String template = "您的验证码是{}。如非本人操作，请忽略本短信,4小时内有效。";
 //    private String repeat = "您已获取过验证码";
 //    private String template = "您的验证码是{}。如非本人操作，请忽略本短信,4小时内有效。【TEST】";
 }

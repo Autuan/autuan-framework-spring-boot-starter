@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>top.autuan</groupId>
-    <artifactId>deehero-framework-spring-boot-starter</artifactId>
+    <artifactId>autuan-framework-spring-boot-starter</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
     <parent>
