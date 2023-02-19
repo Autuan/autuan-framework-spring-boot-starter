@@ -26,7 +26,6 @@ public class RedisConfiguration {
         String host = props.getHost();
         Integer port = props.getPort();
         String address = "redis://" + host + ":" + port;
-        System.out.println("re-address: " + address);
         Config config = new Config();
         config.setCodec(new JsonJacksonCodec());
         config.useSingleServer()
@@ -36,10 +35,6 @@ public class RedisConfiguration {
                 .setDatabase(props.getDatabase())
         ;
         RedissonClient client = Redisson.create(config);
-
-        System.out.println("pwd" + props.getPassword());
-        RBucket<Object> bucket = client.getBucket("test_autuan");
-        bucket.set("HelloAutuan", 1, TimeUnit.HOURS);
 
         return client;
     }
