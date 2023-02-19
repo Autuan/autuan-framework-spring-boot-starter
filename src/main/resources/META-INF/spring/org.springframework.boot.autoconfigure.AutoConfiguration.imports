@@ -1,0 +1,5 @@
+top.autuan.redis.RedisConfiguration
+top.autuan.captcha.CaptchaConfiguration
+top.autuan.dingTalk.DingTalkConfiguration
+top.autuan.sms.SmsConfiguration
+top.autuan.wecom.WecomConfiguration

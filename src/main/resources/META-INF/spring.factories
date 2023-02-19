@@ -1,4 +1,5 @@
 # Auto Configure
+# SpringBoot 2.0 ????
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 top.autuan.redis.RedisConfiguration,\
 top.autuan.captcha.CaptchaConfiguration,\
