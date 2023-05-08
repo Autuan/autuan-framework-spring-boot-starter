@@ -1,24 +1,38 @@
 # 用于各项目的通用底层框架支持
 
 ## 使用说明
-maven 仓库配置地址：
+### 通过 maven 引入
+- [ ] 文档未完成,等待施工
+### 自行打包
+- [ ] 文档未完成,等待施工
+
+- maven 仓库配置地址：
 ```` xml
 <server>
     <id>autuan</id>
     <password>${token}</password>
 </server>
 ````
-## 当前版本
-1.0.0-SNAPSHOT
 
-## 已有功能
-* Hutool 工具类  
+## 版本
+### 当前版本
+1.17.0-SNAPSHOT
+### 关于版本号说明
+maven打包的版本号，中间版本号为支持的JDK版本  
+1.17.0 : JDK 17版本
+1.8.0 : JDK 8版本
+
+代码中 master 分支为 JDK 17版本， JDK 8版本请切换到 java8 分支
+
+## 功能
+### 1.x.0
+- [x] Hutool 工具类  
   Hutool 版本： 5.7.17  
   Hutool 文档地址 : [点击跳转](https://hutool.cn/docs/#/)
-* Guava 工具类  
+- [x] Guava 工具类  
   Guava 版本: 31.1-jre  
   Guava 地址 [GitHub地址](https://github.com/google/guava)
-* 用于Web响应的通用类 `Result`
+- [x] 用于Web响应的通用类 `Result`
   ````java
   // 部分细节略
   public class Result {
@@ -29,20 +43,19 @@ maven 仓库配置地址：
   }
   ````
   
-* 运行时业务异常 BusinessException & 部分泛用型枚举
-* 验证码生成工具
-* 钉钉群聊机器人消息推送
-* 企业微信群聊机器人消息推送
-* Redis 缓存注解
-* 短信发送 工具类
-* BCryptPasswordEncoder密码工具类
+- [x] 运行时业务异常 BusinessException & 部分泛用型枚举
+- [x] 验证码生成工具
+- [x] 钉钉群聊机器人消息推送
+- [x] 企业微信群聊机器人消息推送
+- [x] Redis 缓存注解
+- [x] 短信发送 工具类
+- [x] BCryptPasswordEncoder密码工具类
 
-## 更新计划：
-### 1.0.x
-文档补全
+### 1.x.1
+- [ ] 业务异常扩展
+- [ ] 对象存储工具 AliYun OSS
+- [ ] 对象存储工具 MinIO
 
-### 1.1.0
-业务异常扩展
 
 
 ## 作者信息
