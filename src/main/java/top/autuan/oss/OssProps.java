@@ -17,4 +17,5 @@ public class OssProps {
     private String bucketName;
     private String key;
     private String secret;
+
 }

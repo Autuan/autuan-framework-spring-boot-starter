@@ -7,8 +7,6 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import top.autuan.captcha.CaptchaComponent;
-import top.autuan.captcha.CaptchaProps;
 
 @Configuration
 @EnableConfigurationProperties(SmsProps.class)
@@ -16,8 +14,8 @@ public class SmsConfiguration {
 
     @Bean
     @ConditionalOnBean(RedissonClient.class)
-    @ConditionalOnProperty(prefix = "sms",name = "enable")
-    SmsComponent smsComponent(@Autowired RedissonClient redissonClient, SmsProps prop){
-        return new SmsComponent(redissonClient, prop);
+    @ConditionalOnProperty(prefix = "sms",name = "enable",havingValue = "http")
+    SmsComponentHttpImpl smsComponent(@Autowired RedissonClient redissonClient, SmsProps prop){
+        return new SmsComponentHttpImpl(redissonClient, prop);
     }
 }

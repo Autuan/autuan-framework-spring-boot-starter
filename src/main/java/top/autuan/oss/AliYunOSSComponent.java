@@ -1,4 +1,4 @@
-package top.autuan.oss.aliyun;
+package top.autuan.oss;
 
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.util.IdUtil;
