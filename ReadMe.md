@@ -4,7 +4,7 @@
 ### 自行打包
 将此项目下载下来  
 ```bash
-git clone TencentCloudSmsImpl
+git clone https://github.com/Autuan/autuan-framework-spring-boot-starter.git
 ```  
 
 使用 maven 安装到本地仓库
