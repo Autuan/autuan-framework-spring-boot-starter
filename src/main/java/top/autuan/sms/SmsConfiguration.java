@@ -18,4 +18,11 @@ public class SmsConfiguration {
     SmsComponentHttpImpl smsComponent(@Autowired RedissonClient redissonClient, SmsProps prop){
         return new SmsComponentHttpImpl(redissonClient, prop);
     }
+
+    @Bean
+    @ConditionalOnBean(RedissonClient.class)
+    @ConditionalOnProperty(prefix = "sms",name = "enable",havingValue = "tencent")
+    TencentCloudSmsImpl tencentCloudSmsComponent(@Autowired RedissonClient redissonClient, SmsProps prop){
+        return new TencentCloudSmsImpl(redissonClient, prop);
+    }
 }

@@ -2,7 +2,6 @@ package top.autuan.sms;
 
 import cn.hutool.captcha.generator.RandomGenerator;
 import cn.hutool.core.text.UnicodeUtil;
-import cn.hutool.core.util.StrUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RBucket;
 import org.redisson.api.RedissonClient;
@@ -20,7 +19,7 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 @Slf4j
-public class TencentCloudSmsComponent {
+public class TencentCloudSmsImpl implements SmsComponent {
 
     private final RedissonClient redissonClient;
     private final RandomGenerator RANDOM_GENERATOR;
@@ -33,8 +32,8 @@ public class TencentCloudSmsComponent {
     private String TEMPLATE_ID;
 
     private String SIGN_NAME;
-    public TencentCloudSmsComponent(RedissonClient redissonClient,
-                                    SmsProps props) {
+    public TencentCloudSmsImpl(RedissonClient redissonClient,
+                               SmsProps props) {
         this.redissonClient = redissonClient;
             this.RANDOM_GENERATOR = new RandomGenerator("0123456789", props.getLength());
 
