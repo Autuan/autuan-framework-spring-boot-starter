@@ -1,10 +1,31 @@
 # 用于各项目的通用底层框架支持
 
 ## 使用说明
-### 通过 maven 引入
-- [ ] 文档未完成,等待施工
 ### 自行打包
-- [ ] 文档未完成,等待施工
+将此项目下载下来  
+```bash
+git clone TencentCloudSmsImpl
+```  
+
+使用 maven 安装到本地仓库
+```bash
+mvn clean install
+```
+
+如果你有私服，也可以安装到私服中
+```bash
+mvn clean deploy
+```
+
+安装在本地或推送到私服后，在项目中引入即可
+```` xml
+<dependency>
+    <groupId>top.autuan</groupId>
+    <artifactId>autuan-framework-spring-boot-starter</artifactId>
+    <version>${版本号}</version>
+</dependency>
+````
+
 
 - maven 仓库配置地址：
 ```` xml
