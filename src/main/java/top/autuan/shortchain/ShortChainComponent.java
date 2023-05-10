@@ -41,6 +41,11 @@ public class ShortChainComponent {
 
         if (true) {
             RBloomFilter<Object> filter = redissonClient.getBloomFilter(bloomFilterKey);
+            // 避免过滤器未初始化
+            if(!filter.isExists() ){
+                filter.tryInit(2048L, 0.03);
+            }
+
             for (String val : list) {
                 if (filter.contains(val)) {
                     continue;
