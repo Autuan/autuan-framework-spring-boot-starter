@@ -1,6 +1,18 @@
 # 用于各项目的通用底层框架支持
 
 ## 使用说明
+### 直接引用
+#### JDK17 
+pom.xml 引入 
+```
+<dependency>
+  <groupId>top.autuan</groupId>
+  <artifactId>autuan-framework-spring-boot-starter</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+</dependency>
+```
+最新的版本号可以前往 Release 页面查看
+
 ### 自行打包
 将此项目下载下来  
 ```bash
