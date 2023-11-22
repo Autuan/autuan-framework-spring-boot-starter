@@ -16,18 +16,26 @@
     </parent>
 
     <properties>
-<!--        <maven.compiler.source>8</maven.compiler.source>-->
-<!--        <maven.compiler.target>8</maven.compiler.target>-->
+        <!--        <maven.compiler.source>8</maven.compiler.source>-->
+        <!--        <maven.compiler.target>8</maven.compiler.target>-->
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/Autuan/autuan-framework-spring-boot-starter</url>
+        </repository>
+    </distributionManagement>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
-<!--            <version>2.6.5</version>-->
+            <!--            <version>2.6.5</version>-->
         </dependency>
 
         <dependency>
@@ -35,7 +43,7 @@
             <artifactId>spring-boot-autoconfigure</artifactId>
         </dependency>
 
-<!--        自定义jar-->
+        <!--        自定义jar-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -67,11 +75,11 @@
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.redisson/redisson-spring-boot-starter -->
-<!--        <dependency>-->
-<!--            <groupId>org.redisson</groupId>-->
-<!--            <artifactId>redisson-spring-boot-starter</artifactId>-->
-<!--            <version>3.19.3</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.redisson</groupId>-->
+        <!--            <artifactId>redisson-spring-boot-starter</artifactId>-->
+        <!--            <version>3.19.3</version>-->
+        <!--        </dependency>-->
 
         <!-- BCrypt -->
         <dependency>
@@ -93,9 +101,9 @@
             <version>3.15.1</version>
         </dependency>
 
-            <!-- go to https://search.maven.org/search?q=tencentcloud-sdk-java and get the latest version. -->
-            <!-- 请到https://search.maven.org/search?q=tencentcloud-sdk-java查询所有版本，最新版本如下 -->
-         <dependency>
+        <!-- go to https://search.maven.org/search?q=tencentcloud-sdk-java and get the latest version. -->
+        <!-- 请到https://search.maven.org/search?q=tencentcloud-sdk-java查询所有版本，最新版本如下 -->
+        <dependency>
             <groupId>com.tencentcloudapi</groupId>
             <artifactId>tencentcloud-sdk-java</artifactId>
             <version>3.1.717</version>
