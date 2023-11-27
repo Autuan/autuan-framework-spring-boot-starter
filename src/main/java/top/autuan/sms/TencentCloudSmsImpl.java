@@ -2,10 +2,6 @@ package top.autuan.sms;
 
 import cn.hutool.captcha.generator.RandomGenerator;
 import cn.hutool.core.text.UnicodeUtil;
-import lombok.extern.slf4j.Slf4j;
-import org.redisson.api.RBucket;
-import org.redisson.api.RedissonClient;
-import top.autuan.web.exception.BusinessException;
 import com.tencentcloudapi.common.Credential;
 import com.tencentcloudapi.common.exception.TencentCloudSDKException;
 import com.tencentcloudapi.common.profile.ClientProfile;
@@ -13,6 +9,10 @@ import com.tencentcloudapi.common.profile.HttpProfile;
 import com.tencentcloudapi.sms.v20210111.SmsClient;
 import com.tencentcloudapi.sms.v20210111.models.SendSmsRequest;
 import com.tencentcloudapi.sms.v20210111.models.SendSmsResponse;
+import lombok.extern.slf4j.Slf4j;
+import org.redisson.api.RBucket;
+import org.redisson.api.RedissonClient;
+import top.autuan.web.exception.BusinessException;
 
 import java.util.Collections;
 import java.util.Set;
@@ -32,10 +32,11 @@ public class TencentCloudSmsImpl implements SmsComponent {
     private String TEMPLATE_ID;
 
     private String SIGN_NAME;
+
     public TencentCloudSmsImpl(RedissonClient redissonClient,
                                SmsProps props) {
         this.redissonClient = redissonClient;
-            this.RANDOM_GENERATOR = new RandomGenerator("0123456789", props.getLength());
+        this.RANDOM_GENERATOR = new RandomGenerator("0123456789", props.getLength());
 
         this.APP_ID = props.getAppId();
         this.TEMPLATE_ID = props.getTemplate();
@@ -65,7 +66,7 @@ public class TencentCloudSmsImpl implements SmsComponent {
 
 //        send(mobile, content);
 
-        sendVerifyCode(Collections.singleton(mobile),code);
+        sendVerifyCode(Collections.singleton(mobile), code);
     }
 
     public Boolean verify(String mobile, String userInput) {

@@ -4,28 +4,25 @@ import cn.hutool.captcha.CaptchaUtil;
 import cn.hutool.captcha.LineCaptcha;
 import cn.hutool.captcha.generator.RandomGenerator;
 import cn.hutool.core.codec.Base64;
-import cn.hutool.core.util.RandomUtil;
 import cn.hutool.core.util.StrUtil;
 import org.redisson.api.RBucket;
 import org.redisson.api.RedissonClient;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import java.io.ByteArrayOutputStream;
 import java.util.concurrent.TimeUnit;
 
 public class CaptchaComponent {
-    private RedissonClient redissonClient;
-    private final RandomGenerator RANDOM_GENERATOR ;
+    private final RandomGenerator RANDOM_GENERATOR;
     private final String PREFIX;
+    private RedissonClient redissonClient;
 
-    public CaptchaComponent(RedissonClient redissonClient,String prefix,Integer length) {
+    public CaptchaComponent(RedissonClient redissonClient, String prefix, Integer length) {
         this.redissonClient = redissonClient;
         this.PREFIX = prefix;
         this.RANDOM_GENERATOR = new RandomGenerator("0123456789", length);
     }
 
-    public String generatorBase64(String identify){
+    public String generatorBase64(String identify) {
         ByteArrayOutputStream captcha = generator(identify);
         return Base64.encode(captcha.toByteArray());
     }
@@ -48,7 +45,7 @@ public class CaptchaComponent {
     }
 
     public Boolean verifyCaptcha(String identify, String userInput) {
-        if(StrUtil.hasBlank(identify,userInput)) {
+        if (StrUtil.hasBlank(identify, userInput)) {
             return false;
         }
         String key = PREFIX + identify;

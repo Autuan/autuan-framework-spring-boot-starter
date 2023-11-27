@@ -24,7 +24,7 @@ git clone https://github.com/Autuan/autuan-framework-spring-boot-starter.git
 mvn clean install
 ```
 
-如果你有私服，也可以安装到私服中
+如果你有私服，也可以安装到私服中d
 ```bash
 mvn clean deploy
 ```
@@ -58,7 +58,6 @@ maven打包的版本号，中间版本号为支持的JDK版本
 代码中 master 分支为 JDK 17版本， JDK 8版本请切换到 java8 分支
 
 ## 功能
-### 1.x.0
 - [x] Hutool 工具类  
   Hutool 版本： 5.7.17  
   Hutool 文档地址 : [点击跳转](https://hutool.cn/docs/#/)
@@ -66,7 +65,7 @@ maven打包的版本号，中间版本号为支持的JDK版本
   Guava 版本: 31.1-jre  
   Guava 地址 [GitHub地址](https://github.com/google/guava)
 - [x] 用于Web响应的通用类 `Result`
-  ````java
+  ```java
   // 部分细节略
   public class Result {
     private String code;
@@ -74,7 +73,7 @@ maven打包的版本号，中间版本号为支持的JDK版本
     private String msg;
     private String timestamp;
   }
-  ````
+  ```
   
 - [x] 运行时业务异常 BusinessException & 部分泛用型枚举
 - [x] 验证码生成工具
@@ -84,14 +83,15 @@ maven打包的版本号，中间版本号为支持的JDK版本
 - [x] 短信发送 工具类
 - [x] BCryptPasswordEncoder密码工具类
 
-### 1.x.1
-- [ ] 业务异常扩展
-- [ ] 对象存储工具 AliYun OSS
-- [ ] 对象存储工具 MinIO
 - [ ] 短链
 - [ ] 短信发送 阿里云
 - [ ] 短信发送 腾讯云
 - [ ] 短信发送 极光
+- [ ] 业务异常扩展
+- [ ] 对象存储工具 AliYun OSS
+- [ ] 对象存储工具 MinIO
+- [ ] TraceId 生成工具
+
 
 ## 作者信息
 Autuan
