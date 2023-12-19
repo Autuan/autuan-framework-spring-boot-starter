@@ -58,6 +58,7 @@ maven打包的版本号，中间版本号为支持的JDK版本
 代码中 master 分支为 JDK 17版本， JDK 8版本请切换到 java8 分支
 
 ## 功能
+### v1.0.0-SNAPSHOT
 - [x] Hutool 工具类  
   Hutool 版本： 5.7.17  
   Hutool 文档地址 : [点击跳转](https://hutool.cn/docs/#/)
@@ -83,14 +84,16 @@ maven打包的版本号，中间版本号为支持的JDK版本
 - [x] 短信发送 工具类
 - [x] BCryptPasswordEncoder密码工具类
 
-- [ ] 短链
+# v1.1.x
+- [ ] 短链 1.1.0 支持
 - [ ] 短信发送 阿里云
 - [ ] 短信发送 腾讯云
 - [ ] 短信发送 极光
 - [ ] 业务异常扩展
 - [ ] 对象存储工具 AliYun OSS
 - [ ] 对象存储工具 MinIO
-- [ ] TraceId 生成工具
+
+[//]: # (- [ ] TraceId 生成工具)
 
 
 ## 作者信息

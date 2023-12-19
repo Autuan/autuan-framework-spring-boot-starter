@@ -13,4 +13,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @AllArgsConstructor
 public class ShortChainProps {
     private String enable;
+
+    private Boolean recursion;
 }

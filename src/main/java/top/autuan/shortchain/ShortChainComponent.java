@@ -16,13 +16,15 @@ public class ShortChainComponent {
 
     private RedissonClient redissonClient;
 
+    private final boolean RECURSION;
 
-    public ShortChainComponent(RedissonClient redissonClient) {
+    public ShortChainComponent(RedissonClient redissonClient,boolean recursion) {
         this.redissonClient = redissonClient;
+        this.RECURSION=recursion;
     }
 
     // 生成一个不重复的短链/短码
-    public String generateShortCode(String bloomFilterKey,String originData) {
+    public String generateShortCode(String bloomFilterKey,String originData,boolean isRecursion) {
         // 一个系统可能有多个短链，所以需要指定 bloomFilterKey 如: 用户邀请码  文章公告短链 分享短链
         bloomFilterKey = Optional.ofNullable(bloomFilterKey).orElse("bloom:filter:key");
 
@@ -39,7 +41,7 @@ public class ShortChainComponent {
             list.add(hash62);
         }
 
-        if (true) {
+        // 是否递归
             RBloomFilter<Object> filter = redissonClient.getBloomFilter(bloomFilterKey);
             // 避免过滤器未初始化
             if(!filter.isExists() ){
@@ -55,7 +57,10 @@ public class ShortChainComponent {
                     return val;
                 }
             }
-        }
+
+            if(isRecursion) {
+                return generateShortCode(bloomFilterKey, originData, isRecursion);
+            }
 
         throw new BusinessException("generator error repeat 20 times");
     }
