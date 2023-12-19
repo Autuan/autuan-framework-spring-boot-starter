@@ -24,6 +24,9 @@ public class ShortChainConfiguration {
     @ConditionalOnBean(RedissonClient.class)
     @ConditionalOnProperty(prefix = "short-chain", name = "enable")
     ShortChainComponent shortChainComponent(@Autowired RedissonClient redissonClient,ShortChainProps props) {
-        return new ShortChainComponent(redissonClient, Optional.ofNullable(props.getRecursion()).orElse(false));
+        return new ShortChainComponent(redissonClient,
+                Optional.ofNullable(props.getRecursion()).orElse(false),
+                Optional.of(props.getDay()).orElse(15)
+                );
     }
 }

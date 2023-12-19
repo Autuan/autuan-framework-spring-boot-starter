@@ -19,10 +19,10 @@ public class ShortChainComponent {
     private final int DAY_TO_LIVE ;
     private RedissonClient redissonClient;
 
-    public ShortChainComponent(RedissonClient redissonClient, boolean recursion) {
+    public ShortChainComponent(RedissonClient redissonClient, boolean recursion, int dayToLive) {
         this.redissonClient = redissonClient;
         this.RECURSION = recursion;
-        this.DAY_TO_LIVE = 90;
+        this.DAY_TO_LIVE = dayToLive;
     }
 
     private static String convertToBase62(long decimal) {

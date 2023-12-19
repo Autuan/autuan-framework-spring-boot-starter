@@ -15,4 +15,6 @@ public class ShortChainProps {
     private String enable;
 
     private Boolean recursion;
+
+    private Integer day;
 }
