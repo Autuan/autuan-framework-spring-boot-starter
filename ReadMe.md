@@ -46,6 +46,18 @@ mvn clean deploy
     <password>${token}</password>
 </server>
 ````
+## 使用
+目前版本（1.0.0 SNAPSHOT）需要强制启用 redis , 即配置如下参数：
+```properties
+# redis 数据库
+spring.redis.database= 0
+# redis 地址
+spring.redis.host= 192.168.1.1
+# redis 端口
+spring.redis.port= 6379
+# redis 密码
+spring.redis.password= 123456
+```
 
 ## 版本
 ### 当前版本
