@@ -108,6 +108,13 @@
             <artifactId>tencentcloud-sdk-java</artifactId>
             <version>3.1.717</version>
         </dependency>
+
+        <!-- 2fa -->
+        <dependency>
+          <groupId>dev.samstevens.totp</groupId>
+          <artifactId>totp-spring-boot-starter</artifactId>
+          <version>1.7.1</version>
+        </dependency>
     </dependencies>
 
     <build>
