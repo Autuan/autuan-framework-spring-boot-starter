@@ -111,10 +111,18 @@
 
         <!-- 2fa -->
         <dependency>
-          <groupId>dev.samstevens.totp</groupId>
-          <artifactId>totp-spring-boot-starter</artifactId>
-          <version>1.7.1</version>
+            <groupId>dev.samstevens.totp</groupId>
+            <artifactId>totp-spring-boot-starter</artifactId>
+            <version>1.7.1</version>
         </dependency>
+
+        <!-- 元配置信息 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
     </dependencies>
 
     <build>
