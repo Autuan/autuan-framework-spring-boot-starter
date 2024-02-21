@@ -9,7 +9,6 @@ import dev.samstevens.totp.recovery.RecoveryCodeGenerator;
 import dev.samstevens.totp.secret.DefaultSecretGenerator;
 import dev.samstevens.totp.secret.SecretGenerator;
 import dev.samstevens.totp.time.SystemTimeProvider;
-import org.springframework.beans.factory.annotation.Autowired;
 import top.autuan.auth.entity.AuthSetupResult;
 
 import java.util.Arrays;
@@ -21,6 +20,8 @@ import static dev.samstevens.totp.util.Utils.getDataUriForImage;
 public class TotpAuthComponent {
     private SecretGenerator secretGenerator;
     private RecoveryCodeGenerator recoveryCodeGenerator;
+//  @Autowired
+    private CodeVerifier verifier;
 
     private QrGenerator qrGenerator;
 
@@ -44,15 +45,8 @@ public class TotpAuthComponent {
         this.period = period;
     }
 
-    @Autowired
-    private CodeVerifier verifier;
 
-    public List<String> recoveryCodes(Integer recoverNum) {
-        Integer amount = Optional.ofNullable(recoverNum).orElse(6);
-        String[] codes = recoveryCodeGenerator.generateCodes(amount);
-        List<String> list = Arrays.asList(codes);
-        return list;
-    }
+
 
     public Boolean verify(String code, String secret) {
         return verifier.isValidCode(secret, code);
@@ -63,16 +57,23 @@ public class TotpAuthComponent {
         return secret;
     }
 
-    public AuthSetupResult setupDevice(String companyEmail, String appName) throws QrGenerationException {
+    /**
+     *
+     * @param title 标题 即 issuer
+     * @param subtitle 副标题 即 label 可以放提醒或用户名/手机号
+     * @return
+     * @throws QrGenerationException
+     */
+    public AuthSetupResult setup(String title, String subtitle) throws QrGenerationException {
         String secret = generateSecret();
-        return setupDevice(secret, companyEmail, appName);
+        return setup(secret, title,subtitle);
     }
 
-    public AuthSetupResult setupDevice(String secret, String companyEmail, String appName) throws QrGenerationException {
+    public AuthSetupResult setup(String secret, String appName, String subtitle) throws QrGenerationException {
         QrData data = new QrData.Builder()
-                .label(companyEmail)
-                .secret(secret)
                 .issuer(appName)
+                .label(subtitle)
+                .secret(secret)
                 .algorithm(HashingAlgorithm.SHA1)
                 .digits(digits)
                 .period(period)
@@ -86,5 +87,12 @@ public class TotpAuthComponent {
                 .imageBase64(qrCodeImage)
                 .secret(secret)
                 .build();
+    }
+
+        public List<String> recoveryCodes(Integer recoverNum) {
+        Integer amount = Optional.ofNullable(recoverNum).orElse(6);
+        String[] codes = recoveryCodeGenerator.generateCodes(amount);
+        List<String> list = Arrays.asList(codes);
+        return list;
     }
 }

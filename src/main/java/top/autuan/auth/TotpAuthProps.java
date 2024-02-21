@@ -14,7 +14,9 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TotpAuthProps {
+    // 验证码长度
     private Integer digits = 6;
+    // 时间片长度
     private Integer period = 30;
 //    private String recoverNum;
 }
