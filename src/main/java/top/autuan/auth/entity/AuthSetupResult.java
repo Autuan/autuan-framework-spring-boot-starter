@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -19,4 +21,9 @@ public class AuthSetupResult {
      * auth secret
      */
     private String secret;
+
+    /**
+     * recovery code
+     */
+    private List<String> recoveryCodes;
 }

@@ -20,7 +20,7 @@ import static dev.samstevens.totp.util.Utils.getDataUriForImage;
 public class TotpAuthComponent {
     private SecretGenerator secretGenerator;
     private RecoveryCodeGenerator recoveryCodeGenerator;
-//  @Autowired
+    //  @Autowired
     private CodeVerifier verifier;
 
     private QrGenerator qrGenerator;
@@ -46,8 +46,6 @@ public class TotpAuthComponent {
     }
 
 
-
-
     public Boolean verify(String code, String secret) {
         return verifier.isValidCode(secret, code);
     }
@@ -58,15 +56,14 @@ public class TotpAuthComponent {
     }
 
     /**
-     *
-     * @param title 标题 即 issuer
+     * @param title    标题 即 issuer
      * @param subtitle 副标题 即 label 可以放提醒或用户名/手机号
      * @return
      * @throws QrGenerationException
      */
     public AuthSetupResult setup(String title, String subtitle) throws QrGenerationException {
         String secret = generateSecret();
-        return setup(secret, title,subtitle);
+        return setup(secret, title, subtitle);
     }
 
     public AuthSetupResult setup(String secret, String appName, String subtitle) throws QrGenerationException {
@@ -83,14 +80,21 @@ public class TotpAuthComponent {
                 qrGenerator.generate(data),
                 qrGenerator.getImageMimeType()
         );
+
+        List<String> codes = generatorRecoverCodes();
+
         return AuthSetupResult.builder()
                 .imageBase64(qrCodeImage)
                 .secret(secret)
+                .recoveryCodes(codes)
                 .build();
     }
 
-        public List<String> recoveryCodes(Integer recoverNum) {
-        Integer amount = Optional.ofNullable(recoverNum).orElse(6);
+    public List<String> generatorRecoverCodes() {
+        return generatorRecoverCodes(6);
+    }
+
+    public List<String> generatorRecoverCodes(Integer amount) {
         String[] codes = recoveryCodeGenerator.generateCodes(amount);
         List<String> list = Arrays.asList(codes);
         return list;
