@@ -7,7 +7,7 @@
 
 <del>Github Package Read Secret : （ Read access to code and metadata ）</del>
 
-鉴于 Github Package Read Secret 无法直接下载 如果需要直接引用 GithubPackage 包，请联系仓库所有者获取 token
+鉴于 Github Package Read Secret 无法直接公布 如果需要直接引用 GithubPackage 的 jar 包，请联系仓库所有者获取 token
 
 未来会推送到 Maven 中央仓库 
 
@@ -38,8 +38,6 @@ mvn clean install
 ```bash
 mvn clean deploy
 ```
-
-
 安装在本地或推送到私服后，在项目中引入即可
 ```` xml
 <dependency>
@@ -57,6 +55,14 @@ mvn clean deploy
     <password>${token}</password>
 </server>
 ````
+
+
+### 下载 jar 包
+前往 Release 页面下载最新的 jar 包
+
+[Release 页面](https://github.com/Autuan/autuan-framework-spring-boot-starter)
+
+
 ## 使用
 目前版本（1.0.0 SNAPSHOT）需要强制启用 redis , 即配置如下参数：
 ```properties
