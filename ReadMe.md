@@ -3,7 +3,17 @@
 
 ## 使用说明
 ### 直接引用
-#### JDK17 
+#### JDK17
+
+Github Package Read Secret : （ Read access to code and metadata ）
+
+有效期至2025-01  
+
+```
+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
+```
+
+
 pom.xml 引入 
 ```
 <dependency>
@@ -13,6 +23,8 @@ pom.xml 引入
 </dependency>
 ```
 最新的版本号可以前往 Release 页面查看
+
+maven 引用Github Package 的教程在[这里](https://autuan.top/2024/03/05/github-package/)
 
 ### 自行打包
 将此项目下载下来  
@@ -29,6 +41,7 @@ mvn clean install
 ```bash
 mvn clean deploy
 ```
+
 
 安装在本地或推送到私服后，在项目中引入即可
 ```` xml
