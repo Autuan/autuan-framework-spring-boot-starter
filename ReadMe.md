@@ -5,14 +5,11 @@
 ### 直接引用
 #### JDK17
 
-Github Package Read Secret : （ Read access to code and metadata ）
+<del>Github Package Read Secret : （ Read access to code and metadata ）</del>
 
-有效期至2025-01  
+鉴于 Github Package Read Secret 无法直接下载 如果需要直接引用 GithubPackage 包，请联系仓库所有者获取 token
 
-```
-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
-```
-
+未来会推送到 Maven 中央仓库 
 
 pom.xml 引入 
 ```
