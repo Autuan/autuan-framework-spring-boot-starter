@@ -19,6 +19,7 @@ import java.util.concurrent.TimeUnit;
 public class ProjectInterceptor implements HandlerInterceptor {
     @Autowired
     private RedissonClient redissonClient;
+
     @Value("${web.interceptor.prefix.token}")
     private String prefixToken;
     @Value("${web.interceptor.prefix.limit}")
@@ -46,10 +47,10 @@ public class ProjectInterceptor implements HandlerInterceptor {
         RRateLimiter limiter = getLimiter(token);
         if (limiter.tryAcquire()) {
             return true;
-        } else {
-            // 已被限流
+        }
+        // 已被限流
+        else {
             // 记录IP
-//            RMap<String, String> recordMap = redissonClient.getMap("limit:record:" + token);
             RMap<String, String> recordMap = redissonClient.getMap(prefixRecord + token);
             recordMap.put("ip", clientIP);
             recordMap.put("time", LocalDateTime.now().toString());
@@ -78,8 +79,6 @@ public class ProjectInterceptor implements HandlerInterceptor {
     }
 
     private RRateLimiter getLimiter(String token) {
-        // todo prefix
-//        RRateLimiter limiter = redissonClient.getRateLimiter("limiter:sso:" + token);
         RRateLimiter limiter = redissonClient.getRateLimiter(prefixLimit + token);
         if (limiter.isExists()) {
             // 刷新过期时间

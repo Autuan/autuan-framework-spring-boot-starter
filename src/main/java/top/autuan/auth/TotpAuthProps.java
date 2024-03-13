@@ -18,5 +18,4 @@ public class TotpAuthProps {
     private Integer digits = 6;
     // 时间片长度
     private Integer period = 30;
-//    private String recoverNum;
 }
