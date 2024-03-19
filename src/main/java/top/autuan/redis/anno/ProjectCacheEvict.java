@@ -31,6 +31,4 @@ public @interface ProjectCacheEvict {
      * </ul>
      */
     String[] key() default {"#method"};
-//    String key() default "#method";
-
 }

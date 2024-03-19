@@ -17,8 +17,8 @@ public class CaptchaConfiguration {
 
     @Bean
     @ConditionalOnBean(RedissonClient.class)
-    @ConditionalOnProperty(prefix = "captcha",name = "enable")
-    CaptchaComponent captchaComponent(@Autowired RedissonClient redissonClient,CaptchaProps prop){
+    @ConditionalOnProperty(prefix = "captcha", name = "enable")
+    CaptchaComponent captchaComponent(@Autowired RedissonClient redissonClient, CaptchaProps prop) {
         return new CaptchaComponent(redissonClient, prop.getPrefix(), prop.getLength());
     }
 

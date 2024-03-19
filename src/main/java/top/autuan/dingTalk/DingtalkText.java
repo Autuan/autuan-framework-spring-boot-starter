@@ -12,7 +12,7 @@ class DingtalkText {
     private String content;
 
     public DingtalkText(String content) {
-        this.content = content ;
+        this.content = content;
     }
 
     public DingtalkText() {

@@ -17,7 +17,6 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.redisson.api.RBucket;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import top.autuan.web.exception.BusinessException;
 
 import java.lang.reflect.Field;
@@ -30,16 +29,11 @@ import java.time.LocalTime;
 import java.util.*;
 
 @Aspect
-//@Component
 @Slf4j
 public class ProjectCacheAspect {
-//    private final IDingTalkService dingTalkService;
     private final RedissonClient redissonClient;
 
-    public ProjectCacheAspect(@Autowired RedissonClient redissonClient
-//            ,@Autowired IDingTalkService dingTalkService
-    ) {
-//        this.dingTalkService = dingTalkService;
+    public ProjectCacheAspect(@Autowired RedissonClient redissonClient) {
         this.redissonClient = redissonClient;
     }
 
@@ -57,7 +51,6 @@ public class ProjectCacheAspect {
     @Around("aspectLocation()")
     // todo list 无法正常使用
     public Object around(ProceedingJoinPoint joinPoint) {
-//        log.info("Project Cache Aspect -> around -> start");
         try {
             Signature signature = joinPoint.getSignature();
             MethodSignature methodSignature = (MethodSignature) signature;
@@ -107,7 +100,7 @@ public class ProjectCacheAspect {
                 } else if (obj instanceof String) {
                     paramMap.put(strKey, String.valueOf(obj));
                     keySet.add(strKey);
-                } else if(obj instanceof Integer ){
+                } else if (obj instanceof Integer) {
                     Integer val = (Integer) obj;
                     paramMap.put(integerKey, String.valueOf(val));
                     keySet.add(integerKey);

@@ -16,7 +16,6 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.redisson.api.RBucket;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import top.autuan.web.exception.BusinessException;
 
 import java.lang.reflect.Field;
@@ -29,16 +28,11 @@ import java.time.LocalTime;
 import java.util.*;
 
 @Aspect
-//@Component
 @Slf4j
 public class ProjectCachePutAspect {
-//    private final IDingTalkService dingTalkService;
     private final RedissonClient redissonClient;
 
-    public ProjectCachePutAspect(
-//            @Autowired IDingTalkService dingTalkService,
-                                 @Autowired RedissonClient redissonClient) {
-//        this.dingTalkService = dingTalkService;
+    public ProjectCachePutAspect(@Autowired RedissonClient redissonClient) {
         this.redissonClient = redissonClient;
     }
 
@@ -137,7 +131,6 @@ public class ProjectCachePutAspect {
             return result;
         } catch (Exception e) {
             log.error("ProjectCacheAspect -> error -> ", e);
-//            dingTalkService.sendError(e);
             return result;
         }
     }

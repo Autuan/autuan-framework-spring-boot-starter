@@ -1,6 +1,9 @@
 package top.autuan.auth;
 
-import dev.samstevens.totp.code.*;
+import dev.samstevens.totp.code.CodeVerifier;
+import dev.samstevens.totp.code.DefaultCodeGenerator;
+import dev.samstevens.totp.code.DefaultCodeVerifier;
+import dev.samstevens.totp.code.HashingAlgorithm;
 import dev.samstevens.totp.exceptions.QrGenerationException;
 import dev.samstevens.totp.qr.QrData;
 import dev.samstevens.totp.qr.QrGenerator;
@@ -13,7 +16,6 @@ import top.autuan.auth.entity.AuthSetupResult;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 import static dev.samstevens.totp.util.Utils.getDataUriForImage;
 
@@ -39,9 +41,7 @@ public class TotpAuthComponent {
         this.qrGenerator = qrGenerator;
         this.verifier = verifier;
 
-//        digits = Optional.ofNullable(digits).orElse(6);
         this.digits = digits;
-//        period = Optional.ofNullable(period).orElse(30);
         this.period = period;
     }
 

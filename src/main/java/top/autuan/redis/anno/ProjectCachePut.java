@@ -44,8 +44,8 @@ public @interface ProjectCachePut {
     TimeUnit unit() default TimeUnit.MINUTES;
 
     /**
-     * 因JVM 泛型擦除, List<Bean> 结果，需声明 clazz=Bean.class
-     * 除外,响应基本数据类型及其封装对象以及BigDecimal 的，需要申明响应对象
+     * 因JVM 泛型擦除, List<Bean> 结果，需声明 clazz=Bean.class <br/>
+     * 除外,响应基本数据类型及其封装对象以及BigDecimal 的，需要申明响应对象 <br/>
      *
      *
      * <ul>
