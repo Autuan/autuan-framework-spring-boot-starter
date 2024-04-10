@@ -25,6 +25,33 @@
         <!--        <maven.compiler.target>17</maven.compiler.target>-->
     </properties>
 
+        <!-- 许可证信息，这里是Apache 2.0的许可证，大家根据实际情况修改 -->
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version2.0</name>
+            <url>https://www.apache.org/licenses/</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+
+    <!--   开发人员信息         -->
+    <developers>
+        <developer>
+            <name>Autuan</name>
+            <email>yu@autuan.top</email>
+        </developer>
+    </developers>
+
+    <!--   项目仓库信息         -->
+    <scm>
+        <connection>scm:git:https://github.com/Autuan/autuan-framework-spring-boot-starter.git</connection>
+        <developerConnection>https://github.com/Autuan/autuan-framework-spring-boot-starter</developerConnection>
+        <url>https://github.com/Autuan/autuan-framework-spring-boot-starter.git</url>
+        <tag>1.0.0-Java8</tag>
+    </scm>
+
+
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter -->
         <dependency>
@@ -111,6 +138,14 @@
                         <goals>
                             <goal>sign</goal>
                         </goals>
+                        <configuration>
+                            <keyname>280A9B9761C171FA21B5150609BE9909A384DE7D</keyname>
+                            <passphraseServerId>280A9B9761C171FA21B5150609BE9909A384DE7D</passphraseServerId>
+                            <gpgArguments>
+                                <arg>--pinentry-mode</arg>
+                                <arg>loopback</arg>
+                            </gpgArguments>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
@@ -158,5 +193,6 @@
 
         </plugins>
     </build>
+
 
 </project>
