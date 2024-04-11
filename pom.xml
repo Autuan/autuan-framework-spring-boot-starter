@@ -6,8 +6,8 @@
 
     <groupId>top.autuan</groupId>
     <artifactId>autuan-framework-spring-boot-starter</artifactId>
-    <version>1.0.0-Java8</version>
-    <name>autuan-framework-spring-boot-starter</name>
+    <version>1.0.1-Java8</version>
+    <name>top.autuan:autuan-framework-spring-boot-starter</name>
     <description>集成了大多数系统常用功能</description>
     <url>https://github.com/Autuan/autuan-framework-spring-boot-starter</url>
 
@@ -25,7 +25,7 @@
         <!--        <maven.compiler.target>17</maven.compiler.target>-->
     </properties>
 
-        <!-- 许可证信息，这里是Apache 2.0的许可证，大家根据实际情况修改 -->
+    <!-- 许可证信息，这里是Apache 2.0的许可证，大家根据实际情况修改 -->
     <licenses>
         <license>
             <name>The Apache Software License, Version2.0</name>
@@ -48,7 +48,7 @@
         <connection>scm:git:https://github.com/Autuan/autuan-framework-spring-boot-starter.git</connection>
         <developerConnection>https://github.com/Autuan/autuan-framework-spring-boot-starter</developerConnection>
         <url>https://github.com/Autuan/autuan-framework-spring-boot-starter.git</url>
-        <tag>1.0.0-Java8</tag>
+        <tag>1.0.1-Java8</tag>
     </scm>
 
 
