@@ -6,8 +6,10 @@
 
     <groupId>top.autuan</groupId>
     <artifactId>autuan-framework-spring-boot-starter</artifactId>
-    <version>1.1.4</version>
-<!--    <version>1.1.3-SNAPSHOT</version>-->
+    <version>1.1.5</version>
+    <name>top.autuan:autuan-framework-spring-boot-starter</name>
+    <description>集成了大多数系统常用功能</description>
+    <url>https://github.com/Autuan/autuan-framework-spring-boot-starter</url>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -17,19 +19,38 @@
     </parent>
 
     <properties>
-        <!--        <maven.compiler.source>8</maven.compiler.source>-->
-        <!--        <maven.compiler.target>8</maven.compiler.target>-->
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <!--        <maven.compiler.source>17</maven.compiler.source>-->
+        <!--        <maven.compiler.target>17</maven.compiler.target>-->
     </properties>
 
-    <distributionManagement>
-        <repository>
-            <id>github</id>
-            <name>GitHub Packages</name>
-            <url>https://maven.pkg.github.com/Autuan/autuan-framework-spring-boot-starter</url>
-        </repository>
-    </distributionManagement>
+    <!-- 许可证信息，这里是Apache 2.0的许可证，大家根据实际情况修改 -->
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version2.0</name>
+            <url>https://www.apache.org/licenses/</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+
+    <!--   开发人员信息         -->
+    <developers>
+        <developer>
+            <name>Autuan</name>
+            <email>yu@autuan.top</email>
+        </developer>
+    </developers>
+
+    <!--   项目仓库信息         -->
+    <scm>
+        <connection>scm:git:https://github.com/Autuan/autuan-framework-spring-boot-starter.git</connection>
+        <developerConnection>https://github.com/Autuan/autuan-framework-spring-boot-starter</developerConnection>
+        <url>https://github.com/Autuan/autuan-framework-spring-boot-starter.git</url>
+        <tag>1.1.5</tag>
+    </scm>
+
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter -->
@@ -55,7 +76,7 @@
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
-            <version>5.8.24</version>
+            <version>5.7.17</version>
         </dependency>
 
         <dependency>
@@ -94,36 +115,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
-        <!-- aliyun oss-->
-        <dependency>
-            <groupId>com.aliyun.oss</groupId>
-            <artifactId>aliyun-sdk-oss</artifactId>
-            <version>3.15.1</version>
-        </dependency>
-
-        <!-- go to https://search.maven.org/search?q=tencentcloud-sdk-java and get the latest version. -->
-        <!-- 请到https://search.maven.org/search?q=tencentcloud-sdk-java查询所有版本，最新版本如下 -->
-        <dependency>
-            <groupId>com.tencentcloudapi</groupId>
-            <artifactId>tencentcloud-sdk-java</artifactId>
-            <version>3.1.717</version>
-        </dependency>
-
-        <!-- 2fa -->
-        <dependency>
-            <groupId>dev.samstevens.totp</groupId>
-            <artifactId>totp-spring-boot-starter</artifactId>
-            <version>1.7.1</version>
-        </dependency>
-
-        <!-- 元配置信息 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
-        </dependency>
-
     </dependencies>
 
     <build>
@@ -135,7 +126,73 @@
                     <skip>true</skip>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                        <configuration>
+                            <keyname>280A9B9761C171FA21B5150609BE9909A384DE7D</keyname>
+                            <passphraseServerId>280A9B9761C171FA21B5150609BE9909A384DE7D</passphraseServerId>
+                            <gpgArguments>
+                                <arg>--pinentry-mode</arg>
+                                <arg>loopback</arg>
+                            </gpgArguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Maven Source 插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Maven Javadoc 插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.3.0</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.4.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <publishingServerId>central</publishingServerId>
+                    <tokenAuth>true</tokenAuth>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
+
 
 </project>
