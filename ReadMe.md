@@ -3,20 +3,38 @@
 
 ## 使用说明
 ### 直接引用
-#### JDK17
+#### 中央仓库
+Java17及以上版本：
+```xml
+<dependency>
+  <groupId>top.autuan</groupId>
+  <artifactId>autuan-framework-spring-boot-starter</artifactId>
+  <version>1.1.5</version>
+</dependency>
+```
+Java8版本：(暂不推荐 有部分功能未迁移到Java8版本)
+```xml
+<dependency>
+  <groupId>top.autuan</groupId>
+  <artifactId>autuan-framework-spring-boot-starter</artifactId>
+  <version>1.0.0-Java8</version>
+</dependency>
+```
+
+#### Github Package 引入
 
 <del>Github Package Read Secret : （ Read access to code and metadata ）</del>
 
 鉴于 Github Package Read Secret 无法直接公布 如果需要直接引用 GithubPackage 的 jar 包，请联系仓库所有者获取 token
 
-未来会推送到 Maven 中央仓库 
+
 
 pom.xml 引入 
 ```
 <dependency>
   <groupId>top.autuan</groupId>
   <artifactId>autuan-framework-spring-boot-starter</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.1.5</version>
 </dependency>
 ```
 最新的版本号可以前往 Release 页面查看
@@ -64,7 +82,7 @@ mvn clean deploy
 
 
 ## 使用
-目前版本（1.0.0 SNAPSHOT）需要强制启用 redis , 即配置如下参数：
+目前版本需要强制启用 redis , 即配置如下参数：
 ```properties
 # redis 数据库
 spring.redis.database= 0
@@ -78,15 +96,20 @@ spring.redis.password= 123456
 
 ## 版本
 ### 当前版本
-1.17.0-SNAPSHOT
 ### 关于版本号说明
-maven打包的版本号，中间版本号为支持的JDK版本  
-1.17.0 : JDK 17版本
-1.8.0 : JDK 8版本
+默认版本号需要最低Java17,Java8版本需要 `-Java8` 后缀 
+1.1.5 : JDK 17版本
+1.0.0-Java8 : JDK 8版本
 
 代码中 master 分支为 JDK 17版本， JDK 8版本请切换到 java8 分支
 
 ## 功能
+### 1.1.5
+- [x] 推送到 Maven 中央仓库
+### v1.1.4
+- [x] 2FA验证
+### v1.1.1~v1.1.3
+- [x] 短链  支持
 ### v1.0.0-SNAPSHOT
 - [x] Hutool 工具类  
   Hutool 版本： 5.7.17  
@@ -113,12 +136,11 @@ maven打包的版本号，中间版本号为支持的JDK版本
 - [x] 短信发送 工具类
 - [x] BCryptPasswordEncoder密码工具类
 
-### v1.1.2-SNAPSHOT
-- [x] 短链 1.1.0 支持
-- [ ] 2FA验证
+
 
 
 ## todo
+- [ ] 取消对 Redis 的强制依赖
 - [ ] 短信发送 阿里云
 - [ ] 短信发送 腾讯云
 - [ ] 短信发送 极光
@@ -126,6 +148,7 @@ maven打包的版本号，中间版本号为支持的JDK版本
 - [ ] 对象存储工具 AliYun OSS
 - [ ] 对象存储工具 MinIO
 - [ ] 机器人验证码更新
+- [ ] 完善文档
 
 ## 作者信息
 Autuan

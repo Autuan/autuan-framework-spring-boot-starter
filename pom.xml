@@ -115,7 +115,31 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
+         <!-- go to https://search.maven.org/search?q=tencentcloud-sdk-java and get the latest version. -->
+        <!-- 请到https://search.maven.org/search?q=tencentcloud-sdk-java查询所有版本，最新版本如下 -->
+        <dependency>
+            <groupId>com.tencentcloudapi</groupId>
+            <artifactId>tencentcloud-sdk-java</artifactId>
+            <version>3.1.717</version>
+        </dependency>
+
+        <!-- 2fa -->
+        <dependency>
+            <groupId>dev.samstevens.totp</groupId>
+            <artifactId>totp-spring-boot-starter</artifactId>
+            <version>1.7.1</version>
+        </dependency>
+
+         <!-- aliyun oss-->
+        <dependency>
+            <groupId>com.aliyun.oss</groupId>
+            <artifactId>aliyun-sdk-oss</artifactId>
+            <version>3.15.1</version>
+        </dependency>
+
     </dependencies>
+
 
     <build>
         <plugins>
@@ -126,7 +150,6 @@
                     <skip>true</skip>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
@@ -149,8 +172,7 @@
                     </execution>
                 </executions>
             </plugin>
-
-            <!-- Maven Source 插件 -->
+            <!--  Maven Source 插件  -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
@@ -164,8 +186,7 @@
                     </execution>
                 </executions>
             </plugin>
-
-            <!-- Maven Javadoc 插件 -->
+            <!--  Maven Javadoc 插件  -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
@@ -179,7 +200,6 @@
                     </execution>
                 </executions>
             </plugin>
-
             <plugin>
                 <groupId>org.sonatype.central</groupId>
                 <artifactId>central-publishing-maven-plugin</artifactId>
@@ -190,9 +210,7 @@
                     <tokenAuth>true</tokenAuth>
                 </configuration>
             </plugin>
-
         </plugins>
     </build>
-
 
 </project>
