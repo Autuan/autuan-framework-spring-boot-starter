@@ -46,8 +46,8 @@ public class AliYunOSSComponent {
             // 上传文件
             CLIENT.putObject(putObjectRequest);
 
-            log.info("AliYunOSSComponent -> uploadImg -> done -> path -> {}", objectName);
-            return "https://tanyouhui-img.oss-cn-shanghai.aliyuncs.com" + "/" + objectName;
+            log.debug("AliYunOSSComponent -> uploadImg -> done -> path -> {}", objectName);
+            return  objectName;
 
         } catch (Exception e) {
             log.error("AliYunOSSComponent -> uploadImg -> exception -> ", e);

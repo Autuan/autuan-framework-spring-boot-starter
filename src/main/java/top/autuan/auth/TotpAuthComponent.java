@@ -22,7 +22,6 @@ import static dev.samstevens.totp.util.Utils.getDataUriForImage;
 public class TotpAuthComponent {
     private SecretGenerator secretGenerator;
     private RecoveryCodeGenerator recoveryCodeGenerator;
-    //  @Autowired
     private CodeVerifier verifier;
 
     private QrGenerator qrGenerator;
@@ -96,7 +95,6 @@ public class TotpAuthComponent {
 
     public List<String> generatorRecoverCodes(Integer amount) {
         String[] codes = recoveryCodeGenerator.generateCodes(amount);
-        List<String> list = Arrays.asList(codes);
-        return list;
+        return Arrays.asList(codes);
     }
 }
