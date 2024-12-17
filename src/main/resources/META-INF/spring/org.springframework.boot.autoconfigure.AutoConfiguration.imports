@@ -5,3 +5,4 @@ top.autuan.sms.SmsConfiguration
 top.autuan.wecom.WecomConfiguration
 top.autuan.shortchain.ShortChainConfiguration
 top.autuan.auth.TotpAuthConfiguration
+top.autuan.rank.RankConfiguration

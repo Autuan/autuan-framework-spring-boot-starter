@@ -13,6 +13,9 @@ public class RankComponent {
 
     private RedissonClient redissonClient;
 
+    public RankComponent(RedissonClient redissonClient) {
+        this.redissonClient = redissonClient;
+    }
 
     // 包含所有用户的排行榜
     // 包含所有用户的排行榜
