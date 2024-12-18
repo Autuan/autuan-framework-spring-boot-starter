@@ -27,14 +27,18 @@ public class Result<T> implements Serializable {
         return bool ? ok() : fail(enumInterface);
     }
 
-    public static <T> Result<T> ok() {
-        return ok(null);
+
+    public static <T> Result<T> response(T data) {
+        return ok(data);
     }
 
     public static <T> Result<T> ok(T data) {
         return ok(BaseEnum.SUCCESS.getCode(), data);
     }
 
+    public static <T> Result<T> ok() {
+        return ok(null);
+    }
     public static <T> Result<T> ok(String code, T data) {
         return response(code, data, BaseEnum.SUCCESS.getMessage());
     }
