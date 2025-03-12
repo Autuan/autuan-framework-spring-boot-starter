@@ -2,6 +2,7 @@ package top.autuan.rank;
 
 import org.redisson.api.RScoredSortedSet;
 import org.redisson.api.RedissonClient;
+import org.redisson.api.SortOrder;
 import org.redisson.client.protocol.ScoredEntry;
 
 import java.util.*;
@@ -12,8 +13,10 @@ import java.util.*;
 public class RankComponent {
 
     private RedissonClient redissonClient;
+    private boolean desc;
 
-    public RankComponent(RedissonClient redissonClient) {
+    public RankComponent(RedissonClient redissonClient,String orderBy) {
+        this.desc = "DESC".equals(orderBy);
         this.redissonClient = redissonClient;
     }
 
@@ -27,9 +30,19 @@ public class RankComponent {
 
     // 只包含前n名的排行榜
     public Collection<ScoredEntry<Object>> top(String rankName, int n) {
+        if(n < 1){
+            return null;
+        }
+
         RScoredSortedSet<Object> rank = redissonClient.getScoredSortedSet(rankName);
+
         // 获取前 n 名的得分及排名
-        return rank.entryRange(0, n - 1);  // 0 到 n-1 是前 n 名
+        // 0 到 n-1 是前 n 名
+        if(desc){
+            return rank.entryRangeReversed(0,n-1);
+        } else {
+            return rank.entryRange(0, n - 1);
+        }
     }
 
     // 查询某一位用户的分数
@@ -43,8 +56,12 @@ public class RankComponent {
     public Integer index(String rankName, String user) {
         RScoredSortedSet<Object> rank = redissonClient.getScoredSortedSet(rankName);
         // 查询该用户的排名，排名是从0开始的
-        // 返回正序排名，即从低分到高分
-        return rank.rank(user);
+        if(desc){
+            return rank.revRank(user);
+         } else {
+            // 返回正序排名，即从低分到高分
+            return rank.rank(user);
+        }
     }
     // 查询某一用户的排名 从1开始
     public Integer rankNum(String rankName, String user) {

@@ -22,9 +22,8 @@ public class RankConfiguration {
     @ConditionalOnBean(RedissonClient.class)
     @ConditionalOnProperty(prefix = "rank", name = "enable")
     RankComponent rankComponent(@Autowired RedissonClient redissonClient, RankProps props) {
-        System.out.println("rank props enable "+props.getEnable());
-
-        return new RankComponent(redissonClient
-                );
+//        System.out.println("rank props enable "+props.getEnable());
+        String orderBy = Optional.ofNullable(props.getOrder()).orElse("DESC");
+        return new RankComponent(redissonClient,orderBy);
     }
 }

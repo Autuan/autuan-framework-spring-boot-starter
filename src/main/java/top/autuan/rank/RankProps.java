@@ -13,6 +13,5 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @AllArgsConstructor
 public class RankProps {
     private String enable;
-
-
+    private String order;
 }
