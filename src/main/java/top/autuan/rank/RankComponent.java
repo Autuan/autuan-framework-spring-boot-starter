@@ -77,6 +77,15 @@ public class RankComponent {
         rank.add(score, user);
     }
 
+    public void empty(String rankName) {
+        redissonClient.getScoredSortedSet(rankName).delete();
+    }
+
+    public void remove(String rankName, String user) {
+        RScoredSortedSet<Object> rank = redissonClient.getScoredSortedSet(rankName);
+        rank.remove(user);
+    }
+
     // todo
     // 最近 n 天的排名（假设分数是根据时间来更新的，具体实现依赖业务需求）
 //    private Collection<ScoredEntry<Object>> rankByDate(String rankName, int dayNum) {
